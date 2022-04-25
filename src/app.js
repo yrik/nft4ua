@@ -1,4 +1,5 @@
 import React from 'react';
+import preview from './assets/girl-with-painting.jpeg';
 
 const App = (props) => {
   return (
@@ -8,10 +9,12 @@ const App = (props) => {
         All funds go to Prytula Foundation, used to buy drones make sky safe for
         UA kids
       </div>
-      <br />
-      {/*<button className="btn btn-primary">Mint</button>*/}
-      <br />
-      <br />
+      <img
+        src={preview}
+        alt="Kids of ukraine made art to raise money to protect the sky"
+        style={{ width: '250px' }}
+        className="m-auto mb-5 mt-2"
+      />
       <button class="btn btn-outline btn-secondary">Browse Art</button>
     </div>
   );
