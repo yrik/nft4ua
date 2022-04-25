@@ -1,5 +1,24 @@
 import React from 'react';
 import preview from './assets/girl-with-painting.jpeg';
+import Onboard from 'bnc-onboard';
+
+const onboard = Onboard({
+  //dappId: BLOCKNATIVE_KEY,
+  networkId: 0x1,
+  subscriptions: {
+    wallet: (wallet) => {
+      // instantiate web3 when the user has selected a wallet
+      //web3 = new Web3(wallet.provider);
+      window.alert(`${wallet.name} connected!`);
+      console.log(`${wallet.name} connected!`);
+    },
+  },
+});
+
+async function initWallet() {
+  await onboard.walletSelect();
+  await onboard.walletCheck();
+}
 
 const App = (props) => {
   return (
@@ -25,7 +44,9 @@ const App = (props) => {
             <option>I just want to support 0.5 Ether</option>
           </select>
         </div>
-        <button class="btn btn-primary">Donate & Receive NFT</button>
+        <button class="btn btn-primary" onClick={(e) => initWallet()}>
+          Donate & Receive NFT
+        </button>
       </form>
 
       <button class="mt-3 btn btn-outline btn-secondary">Browse Art</button>
