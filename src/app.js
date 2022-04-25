@@ -15,7 +15,20 @@ const App = (props) => {
         style={{ width: '250px' }}
         className="m-auto mb-5 mt-2"
       />
-      <button class="btn btn-outline btn-secondary">Browse Art</button>
+
+      <form>
+        <div class="relative z-0 mb-6 w-full group">
+          <select class="select select-primary w-full max-w-xs">
+            <option>1 Painting for 0.1 Ether</option>
+            <option>3 Paintings for 0.25 Ether</option>
+            <option>5 Paintings for 0.35 Ether</option>
+            <option>I just want to support 0.5 Ether</option>
+          </select>
+        </div>
+        <button class="btn btn-primary">Donate & Receive NFT</button>
+      </form>
+
+      <button class="mt-3 btn btn-outline btn-secondary">Browse Art</button>
     </div>
   );
 };
