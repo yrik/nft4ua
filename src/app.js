@@ -52,14 +52,21 @@ const App = (props) => {
       />
 
       <div>
-        <select className="select select-primary mr-2 mb-2">
+        <select
+          className="select select-primary mb-2"
+          style={{ width: '250px' }}
+        >
           <option>1 Painting for 0.1 Ether</option>
           <option>3 Paintings for 0.25 Ether</option>
           <option>5 Paintings for 0.35 Ether</option>
-          <option>I just want to support 0.5 Ether</option>
+          <option>I just want to support</option>
         </select>
         <br />
-        <button className="btn btn-primary" onClick={(e) => initWallet()}>
+        <button
+          className="btn btn-primary"
+          onClick={(e) => initWallet()}
+          style={{ width: '250px' }}
+        >
           Donate & Receive NFT
         </button>
       </div>
