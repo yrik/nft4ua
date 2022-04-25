@@ -51,19 +51,22 @@ const App = (props) => {
         className="m-auto mb-5 mt-2"
       />
 
-      <div className="relative z-0 mb-6 w-full group">
-        <select className="select select-primary w-full max-w-xs">
+      <div>
+        <select className="select select-primary mr-2 mb-2">
           <option>1 Painting for 0.1 Ether</option>
           <option>3 Paintings for 0.25 Ether</option>
           <option>5 Paintings for 0.35 Ether</option>
           <option>I just want to support 0.5 Ether</option>
         </select>
+        <br />
+        <button className="btn btn-primary" onClick={(e) => initWallet()}>
+          Donate & Receive NFT
+        </button>
       </div>
-      <button className="btn btn-primary" onClick={(e) => initWallet()}>
-        Donate & Receive NFT
-      </button>
 
-      <button className="mt-3 btn btn-outline btn-secondary">Browse Art</button>
+      <button className="mt-10 btn btn-outline btn-secondary">
+        Browse Art
+      </button>
     </div>
   );
 };
