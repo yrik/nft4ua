@@ -41,8 +41,19 @@ const App = (props) => {
     <div className="prose text-center m-auto mt-5 px-5">
       <h1>NFT collection featuring art of kids of Ukraine</h1>
       <div>
-        All funds go to Prytula Foundation, used to buy drones make sky safe for
-        UA kids
+        All funds go to{' '}
+        <a
+          style={{
+            color: 'inherit',
+            textDecoration: 'none',
+            fontWeight: 'inherit',
+          }}
+          target="_blank"
+          href="https://prytulafoundation.org/en"
+        >
+          Prytula Foundation
+        </a>
+        , used to buy drones make sky safe for UA kids
       </div>
       <img
         src={Preview}
