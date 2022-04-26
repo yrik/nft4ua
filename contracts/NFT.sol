@@ -4,8 +4,8 @@
 
 pragma solidity 0.8.12;
 
-import "@openzeppelin-contracts/contracts/access/Ownable.sol";
-import "@openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "./ContextMixin.sol";
 import "./NativeMetaTransaction.sol";
@@ -14,7 +14,8 @@ import "./NativeMetaTransaction.sol";
 contract NFT4UkraineToday is ERC721, Ownable {
 
     // official wallet of Prytula Foundation from https://prytulafoundation.org/en
-    address constant RECEIVER = 0x858fa9c4de5f7a0e7d6eacb671c3482665a543b2;
+    address constant RECEIVER = 0x858fa9c4De5f7A0e7d6EACB671C3482665A543B2;
+    address proxyRegistryAddress;
 
     uint256 public basePrice = 0.1 ether;
     bool public saleOpen = false;
@@ -26,7 +27,7 @@ contract NFT4UkraineToday is ERC721, Ownable {
       proxyRegistryAddress = _proxyRegistryAddress;
     }
 
-    function setPrice(uint256 price) public onlyOwner {
+    function setBasePrice(uint256 price) public onlyOwner {
         basePrice = price; 
     }
 
@@ -49,12 +50,12 @@ contract NFT4UkraineToday is ERC721, Ownable {
 
     function withdraw() external onlyOwner {
         uint256 balance = address(this).balance;
-        payable(RECEIVER).transfer(balance * 0.9);
+        payable(RECEIVER).transfer(balance *  9 / 10);
         // 10% kept for project funding: deployment cost, promotions, etc 
-        payable(owner()).transfer(balance * 0.1);
+        payable(owner()).transfer(balance * 1 / 10);
     }
 
-    function price(uint256 amount) external returns (uint256) {
+    function cost(uint256 amount) public view returns (uint256) {
       if (amount == 1) {
         return basePrice;
       }
@@ -62,21 +63,20 @@ contract NFT4UkraineToday is ERC721, Ownable {
         return basePrice * 2;
       }
       if (amount == 3) {
-        return basePrice * 3 * 0.8;
+        return basePrice * 3 * 8 / 10;
       }
       if (amount == 4) {
-        return basePrice * 4 * 0.8;
+        return basePrice * 4 * 8 / 10;
       }      
       if (amount == 5) {
-        return basePrice * 5 * 0.7;
+        return basePrice * 5 * 7 / 10;
       } 
-      return   basePrice * amount * 0.7;
+      return   basePrice * amount * 7 / 10;
     }
 
     function mint(uint256 amount) public payable {
-        bool isDeployer = msg.sender == deployerAddress;
         require(saleOpen, "Sale is not open");
-        require(msg.value > price(amount), "Not enough ETH sent");
+        require(msg.value > cost(amount), "Not enough ETH sent");
 
         unchecked {
             uint256 id = _counter;
