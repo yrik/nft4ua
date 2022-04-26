@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 // Contract Author: https://github.com/yrik
-// For: nft4ukraine.today project
+// For: https://nft4ukraine.today project
 
 pragma solidity 0.8.12;
 
-import "@openzeppelin-contracts/contracts/access/Ownable.sol"
-import "@openzeppelin-contracts/contracts/token/ERC721/ERC721.sol"
+import "@openzeppelin-contracts/contracts/access/Ownable.sol";
+import "@openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 
 import "./ContextMixin.sol";
 import "./NativeMetaTransaction.sol";
@@ -14,7 +14,7 @@ import "./NativeMetaTransaction.sol";
 contract NFT4UkraineToday is ERC721, Ownable {
 
     // official wallet of Prytula Foundation from https://prytulafoundation.org/en
-    constant address RECEIVER = 0x858fa9c4de5f7a0e7d6eacb671c3482665a543b2;
+    address constant RECEIVER = 0x858fa9c4de5f7a0e7d6eacb671c3482665a543b2;
 
     uint256 public basePrice = 0.1 ether;
     bool public saleOpen = false;
