@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Contract Author: https://github.com/yrik
+// For: nft4ukraine.today project
 
 pragma solidity 0.8.12;
 
