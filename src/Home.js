@@ -54,7 +54,7 @@ const Landing = (props) => {
         >
           Prytula Foundation
         </a>
-        , used to buy drones make sky safe for UA kids
+        , used to buy drones to make sky safe for UA kids
       </div>
       <img
         src={Preview}
