@@ -43,35 +43,19 @@ const faqData = {
   title: 'FAQ',
   rows: [
     {
-      title: 'What is an nft?',
-      content: 'todo',
-    },
-    {
-      title: 'How can i buy your nft?',
-      content: 'todo',
-    },
-    {
       title: 'When is the release?',
       content: 'todo',
     },
     {
-      title: 'Where can I see art?',
+      title: 'Who made the Art?',
       content: 'todo',
     },
     {
-      title: 'Who is the author of art?',
+      title: 'What is the price?',
       content: 'todo',
     },
     {
-      title: 'How much does each nft cost?',
-      content: 'todo',
-    },
-    {
-      title: 'How do you handle profits?',
-      content: 'todo',
-    },
-    {
-      title: 'What is the royalty percentage and who gets them?',
+      title: 'Where do profits and royalties go?',
       content: 'todo',
     },
     {
