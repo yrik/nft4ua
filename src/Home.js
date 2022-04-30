@@ -5,6 +5,8 @@ import Preview from './assets/girl-with-painting.jpeg';
 import Onboard from '@web3-onboard/core';
 import injectedModule from '@web3-onboard/injected-wallets';
 
+import Faq from 'react-faq-component';
+
 const INFURA_KEY = 'asd';
 const INFURA_ID = 'asdf';
 
@@ -36,6 +38,48 @@ async function initWallet() {
   const wallets = await onboard.connectWallet();
   console.log(wallets);
 }
+
+const faqData = {
+  title: 'FAQ',
+  rows: [
+    {
+      title: 'What is an nft?',
+      content: 'todo',
+    },
+    {
+      title: 'How can i buy your nft?',
+      content: 'todo',
+    },
+    {
+      title: 'When is the release?',
+      content: 'todo',
+    },
+    {
+      title: 'Where can I see art?',
+      content: 'todo',
+    },
+    {
+      title: 'Who is the author of art?',
+      content: 'todo',
+    },
+    {
+      title: 'How much does each nft cost?',
+      content: 'todo',
+    },
+    {
+      title: 'How do you handle profits?',
+      content: 'todo',
+    },
+    {
+      title: 'What is the royalty percentage and who gets them?',
+      content: 'todo',
+    },
+    {
+      title: 'Are you a government organization?',
+      content: 'todo',
+    },
+  ],
+};
 
 const Landing = (props) => {
   return (
@@ -87,6 +131,14 @@ const Landing = (props) => {
       <a href="/art" className="mt-10 btn btn-outline btn-secondary">
         Browse Art
       </a>
+
+      <div className="mt-16 text-left">
+        <Faq
+          data={faqData}
+          styles={{ rowTitleColor: 'grey', titleTextColor: 'grey' }}
+          config={{}}
+        />
+      </div>
     </div>
   );
 };
