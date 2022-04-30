@@ -1,12 +1,11 @@
 import React from 'react';
 import Images from './art/art.json';
 
-
 const Art = (props) => {
   return (
     <div className="prose text-center m-auto mt-5 px-5">
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
-        {Images.map((img) => (
+        {Images.map(([path, name]) => (
           <div className="w-full rounded mx-auto" key={img}>
             <img
               className="rounded"
@@ -16,7 +15,7 @@ const Art = (props) => {
                 height: '300px',
                 display: 'inline-block',
               }}
-              src={`${process.env.PUBLIC_URL}/art-dest/${img}`}
+              src={`${process.env.PUBLIC_URL}/art-dest/${path}`}
             />
             <div
               className="mx-auto"
@@ -28,7 +27,7 @@ const Art = (props) => {
                 borderRadius: '0px 0px 5px 5px',
               }}
             >
-              {img.replace('.jpeg', '')}
+              {name}
             </div>{' '}
           </div>
         ))}
