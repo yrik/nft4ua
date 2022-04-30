@@ -63,7 +63,7 @@ const faqData = {
     {
       title: 'Are you a government organization?',
       content:
-        'We are not a government organization, however, we are supported by a ministry of a digital transformation of Ukraine.',
+        'We are not a government organization, however, we are supported by the ministry of digital transformation of Ukraine.',
     },
   ],
 };
