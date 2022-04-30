@@ -44,23 +44,26 @@ const faqData = {
   rows: [
     {
       title: 'When is the release?',
-      content: 'todo',
+      content: 'May 2022',
     },
     {
       title: 'Who made the Art?',
-      content: 'todo',
+      content:
+        'Kids of Ukraine. We cooperate with refugee centers and multiple schools in Ukraine.',
     },
     {
       title: 'What is the price?',
-      content: 'todo',
+      content: 'You can speficy any price starting from 0.1 ether per NFT',
     },
     {
       title: 'Where do profits and royalties go?',
-      content: 'todo',
+      content:
+        '95% goes directly to the official wallet of Prytula Foundation. 5% is withholded to expand and maintain this project (deployments, promotions, design, etc)',
     },
     {
       title: 'Are you a government organization?',
-      content: 'todo',
+      content:
+        'We are not a government organization, however, we are supported by a ministry of a digital transformation of Ukraine.',
     },
   ],
 };
