@@ -1,6 +1,7 @@
 import React from 'react';
 import Images from './art/art.json';
 
+
 const Art = (props) => {
   return (
     <div className="prose text-center m-auto mt-5 px-5">
