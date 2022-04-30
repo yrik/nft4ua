@@ -5,8 +5,6 @@ import Preview from './assets/girl-with-painting.jpeg';
 import Onboard from '@web3-onboard/core';
 import injectedModule from '@web3-onboard/injected-wallets';
 
-console.log('preview', Preview);
-
 const INFURA_KEY = 'asd';
 const INFURA_ID = 'asdf';
 
