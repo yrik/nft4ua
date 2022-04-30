@@ -53,7 +53,7 @@ const faqData = {
     },
     {
       title: 'What is the price?',
-      content: 'You can speficy any price starting from 0.1 ether per NFT',
+      content: 'You can specify any price starting from 0.1 ether per NFT',
     },
     {
       title: 'Where do profits and royalties go?',
