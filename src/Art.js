@@ -17,20 +17,18 @@ const Art = (props) => {
               }}
               src={`${process.env.PUBLIC_URL}/art-dest/${img}`}
             />
-            {/*
             <div
               className="mx-auto"
               style={{
                 width: '300px',
-                marginTop: '-65px',
+                marginTop: '-35px',
                 backgroundColor: '#808080',
                 color: 'white',
-                borderRadius: '0px 5px',
+                borderRadius: '0px 0px 5px 5px',
               }}
             >
               {img.replace('.jpeg', '')}
-            </div>
-            */}
+            </div>{' '}
           </div>
         ))}
       </div>
