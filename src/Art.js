@@ -15,7 +15,7 @@ const Art = (props) => {
                 height: '300px',
                 display: 'inline-block',
               }}
-              src={require('./art/art-dest/' + img)}
+              src={`${process.env.PUBLIC_URL}/art-dest/${img}`}
             />
             <div
               className="mx-auto"
