@@ -6,7 +6,7 @@ const Art = (props) => {
     <div className="prose text-center m-auto mt-5 px-5">
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
         {Images.map((img) => (
-          <div className="w-full rounded mx-auto" key={im}>
+          <div className="w-full rounded mx-auto" key={img}>
             <img
               className="rounded"
               style={{

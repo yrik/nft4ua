@@ -76,6 +76,7 @@ const Landing = (props) => {
         <br />
         <button
           className="btn btn-primary"
+          disabled="disabled"
           onClick={(e) => initWallet()}
           style={{ width: '250px' }}
         >
