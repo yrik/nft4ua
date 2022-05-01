@@ -7,7 +7,7 @@ const Art = (props) => {
       <a href="/" className="mt-10 btn btn-outline btn-secondary">
         Back to Main
       </a>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
         {Images.map(([path, name]) => (
           <div className="w-full rounded mx-auto" key={path}>
             <img
