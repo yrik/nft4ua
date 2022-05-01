@@ -71,6 +71,15 @@ const faqData = {
 const Landing = (props) => {
   return (
     <div className="prose text-center m-auto mt-5 px-5">
+      <img
+        src="/apple-icon-120x120.png"
+        style={{
+          display: 'inline-block',
+          width: '100px',
+          height: '100px',
+          marginBottom: '15px',
+        }}
+      />
       <h1>NFT collection featuring art of kids of Ukraine</h1>
       <div>
         All funds go to{' '}
