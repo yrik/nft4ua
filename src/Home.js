@@ -75,9 +75,9 @@ const Landing = (props) => {
         src="/apple-icon-120x120.png"
         style={{
           display: 'inline-block',
-          width: '100px',
-          height: '100px',
-          marginBottom: '15px',
+          width: '50px',
+          height: '50px',
+          marginBottom: '5px',
         }}
       />
       <h1>NFT collection featuring art of kids of Ukraine</h1>
