@@ -4,7 +4,10 @@ import Images from './art/art.json';
 const Art = (props) => {
   return (
     <div className="prose text-center m-auto mt-5 px-5">
-      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
+      <a href="/" className="mt-10 btn btn-outline btn-secondary">
+        Back to Main
+      </a>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
         {Images.map(([path, name]) => (
           <div className="w-full rounded mx-auto" key={path}>
             <img
