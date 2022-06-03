@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Contract Author: https://github.com/yrik
-// For: https://nft4ukraine.today project
+// For: https://nft4ukraine.app project
 
 pragma solidity 0.8.12;
 
@@ -17,9 +17,9 @@ contract NFT4UkraineToday is ERC721, Ownable {
     address constant RECEIVER = 0x858fa9c4De5f7A0e7d6EACB671C3482665A543B2;
     address proxyRegistryAddress;
 
-    uint256 public basePrice = 0.1 ether;
+    uint256 public price = 0.1 ether;
     bool public saleOpen = false;
-    string public baseTokenURI = "https://nft4ukraine.today/api/";
+    string public baseTokenURI = "https://nft4ukraine.app/api/";
 
     uint256 _counter;
 
@@ -27,8 +27,8 @@ contract NFT4UkraineToday is ERC721, Ownable {
       proxyRegistryAddress = _proxyRegistryAddress;
     }
 
-    function setBasePrice(uint256 price) public onlyOwner {
-        basePrice = price; 
+    function setPrice(uint256 _price) public onlyOwner {
+        price = _price; 
     }
 
     function setSale(bool open) public onlyOwner {
@@ -55,37 +55,11 @@ contract NFT4UkraineToday is ERC721, Ownable {
         payable(owner()).transfer(balance * 1 / 10);
     }
 
-    function cost(uint256 amount) public view returns (uint256) {
-      if (amount == 1) {
-        return basePrice;
-      }
-      if (amount == 2) {
-        return basePrice * 2;
-      }
-      if (amount == 3) {
-        return basePrice * 3 * 8 / 10;
-      }
-      if (amount == 4) {
-        return basePrice * 4 * 8 / 10;
-      }      
-      if (amount == 5) {
-        return basePrice * 5 * 7 / 10;
-      } 
-      return   basePrice * amount * 7 / 10;
-    }
-
-    function mint(uint256 amount) public payable {
+    function mint(uint256 id) public payable {
         require(saleOpen, "Sale is not open");
-        require(msg.value >= cost(amount), "Not enough ETH sent");
-
-        unchecked {
-            uint256 id = _counter;
-            _counter += amount;
-            for (uint256 i = 0; i < amount; i++) {
-                id++;
-                _mint(msg.sender, id);
-            }
-        }
+        require(msg.value >= price * amount, "Not enough ETH sent");
+        _counter += 1;
+        _mint(msg.sender, id);
     }
 
     function isApprovedForAll(address owner, address operator)

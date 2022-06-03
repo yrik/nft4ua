@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 import Images from './art/art.json';
 import * as Crypto from './crypto.js';
+import * as ethers from 'ethers';
+import ContractAbi from './abi.json';
+
+const ContractAddress = '';
 
 const Art = (props) => {
   const [wallet, setWallet] = useState(undefined);
+  const [contract, setContract] = useState(undefined);
 
   const connectWallet = async () => {
     const wallet = await Crypto.connectWallet();
@@ -15,6 +20,27 @@ const Art = (props) => {
     Crypto.loadWallet();
     return Crypto.saveWalletOnChange(setWallet);
   }, []);
+
+  useEffect(() => {
+    async function init() {
+      if (wallet) {
+        const provider = new ethers.providers.Web3Provider(
+          wallet.provider,
+          'any'
+        );
+        const signer = provider.getUncheckedSigner();
+        const contract = new ethers.Contract(
+          ContractAddress,
+          ContractAbi,
+          signer
+        );
+        setContract(contract);
+      } else {
+        setContract(contract);
+      }
+    }
+    init();
+  }, [wallet]);
 
   return (
     <div className="prose text-center m-auto mt-5 px-5">
