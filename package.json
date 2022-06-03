@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.2",
-    "@web3-onboard/core": "latest",
-    "@web3-onboard/injected-wallets": "latest",
+    "@web3-onboard/core": "^2.2.10",
+    "@web3-onboard/gnosis": "^2.0.1",
+    "@web3-onboard/injected-wallets": "^2.0.7",
+    "@web3-onboard/walletconnect": "^2.0.1",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "react": "^17.0.2",

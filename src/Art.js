@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import Images from './art/art.json';
+import * as Crypto from './crypto.js';
 
 const Art = (props) => {
+  const [wallet, setWallet] = useState(undefined);
+
+  const connectWallet = async () => {
+    const wallet = await Crypto.connectWallet();
+    setWallet(wallet);
+  };
+
+  useEffect(() => {
+    Crypto.loadWallet();
+    return Crypto.saveWalletOnChange(setWallet);
+  }, []);
+
   return (
     <div className="prose text-center m-auto mt-5 px-5">
-      <a href="/" className="mt-10 btn btn-outline btn-secondary">
-        Back to Main
-      </a>
+      <div>
+        {!wallet && (
+          <button className="btn" onClick={connectWallet}>
+            Connect Wallet
+          </button>
+        )}
+      </div>
+
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
         {Images.map(([path, name]) => (
           <div className="w-full rounded mx-auto" key={path}>
