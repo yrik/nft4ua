@@ -11,7 +11,7 @@ import "./ContextMixin.sol";
 import "./NativeMetaTransaction.sol";
 
 
-contract NFT4UkraineToday is ERC721, Ownable {
+contract NFT4Ukraine is ERC721, Ownable {
 
     // official wallet of Prytula Foundation from https://prytulafoundation.org/en
     address constant RECEIVER = 0x858fa9c4De5f7A0e7d6EACB671C3482665A543B2;
