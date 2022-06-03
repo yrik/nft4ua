@@ -11,9 +11,10 @@ const providersConfig = {
     mumbai: {
       URL: 'https://polygon-mumbai.g.alchemy.com/v2/Omk4TvEUaQ6m5EzeIT-5ZHJcYIyxbZvT',
     },
+    /*
     polygon: {
       URL: 'https://polygon-mainnet.g.alchemy.com/v2/hZEjjMbAlUpHO5PWLDrfCl_ba6a3ZTWi',
-    },
+    },*/
   },
 };
 
@@ -26,12 +27,13 @@ const gnosis = gnosisModule();
 const walletConnect = walletConnectModule();
 
 export const chains = [
+  /*
   {
     id: '0x89',
     token: 'MATIC',
     label: 'Polygon',
     rpcUrl: providersConfig[provider]['polygon']['URL'],
-  },
+  },*/
   {
     id: '0x13881',
     token: 'MATIC',
