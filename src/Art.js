@@ -5,8 +5,6 @@ import * as Crypto from './crypto.js';
 import * as ethers from 'ethers';
 import ContractAbi from './abi.json';
 
-const ContractAddress = '';
-
 const Card = ({ id, path, name, contract }) => {
   const [tx, setTx] = useState(undefined);
   const [sold, setSold] = useState(undefined);
@@ -94,6 +92,7 @@ const Art = (props) => {
           'any'
         );
         const signer = provider.getUncheckedSigner();
+        const ContractAddress = Crypto.addresses[wallet.chains[0].id];
         const contract = new ethers.Contract(
           ContractAddress,
           ContractAbi,

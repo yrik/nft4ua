@@ -55,6 +55,13 @@ export const onboard = Onboard({
   },
 });
 
+export const addresses = {
+  // polygon
+  '0x89': '0x37af8Ff206D7D7e85B3dED055F7B8082dAc22067',
+  // mumbai
+  '0x13881': '0x37af8Ff206D7D7e85B3dED055F7B8082dAc22067',
+};
+
 export async function connectWallet() {
   const wallets = await onboard.connectWallet();
   return wallets[0];
