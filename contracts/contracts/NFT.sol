@@ -63,6 +63,10 @@ contract NFT4Ukraine is ERC721, Ownable {
         _mint(msg.sender, id);
     }
 
+    function exists(uint256 id) public return (bool){
+        return _exists(id);
+    }
+
     function isApprovedForAll(address owner, address operator)
         public
         view
