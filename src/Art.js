@@ -126,6 +126,27 @@ const Art = (props) => {
         )}
       </div>
 
+      <div className="mt-20">
+        {wallet &&
+          !Crypto.chains.map((ch) => ch.id).includes(wallet.chains[0].id) && (
+            <span>
+              Warning: Switch to a Supported Network:{' '}
+              {Crypto.chains.map((ch) => (
+                <button
+                  key={ch.id}
+                  className="btn-link mr-2"
+                  onClick={async () => {
+                    await Crypto.onboard.setChain({ chainId: ch.id });
+                    setCorrectChain(isSupportedChain(wallet));
+                  }}
+                >
+                  {ch.label}
+                </button>
+              ))}
+            </span>
+          )}
+      </div>
+
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
         {Images.map(([path, name], index) => (
           <Card
