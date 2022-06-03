@@ -11,7 +11,7 @@ require('@nomiclabs/hardhat-etherscan');
 require('hardhat-gas-reporter');
 
 module.exports = {
-  solidity: '0.8.9',
+  solidity: '0.8.12',
   defaultNetwork: 'hardhat',
   networks: {
     hardhat: {},
