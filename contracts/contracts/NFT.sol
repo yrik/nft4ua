@@ -23,7 +23,9 @@ contract NFT4Ukraine is ERC721, Ownable {
 
     uint256 _counter;
 
-    constructor(address _proxyRegistryAddress) ERC721("NFT For Ukraine", "NFT4UKRAINE") {
+    constructor() ERC721("NFT For Ukraine", "NFT4UKRAINE") {}
+
+    function setProxyRegistryAddress(address _proxyRegistryAddress) public onlyOwner {
       proxyRegistryAddress = _proxyRegistryAddress;
     }
 
@@ -57,13 +59,13 @@ contract NFT4Ukraine is ERC721, Ownable {
 
     function mint(uint256 id) public payable {
         require(saleOpen, "Sale is not open");
-        require(msg.value >= price * amount, "Not enough ETH sent");
+        require(msg.value >= price, "Not enough ETH sent");
         require(!_exists(id), "already minted");
         _counter += 1;
         _mint(msg.sender, id);
     }
 
-    function exists(uint256 id) public return (bool){
+    function exists(uint256 id) public view returns (bool){
         return _exists(id);
     }
 

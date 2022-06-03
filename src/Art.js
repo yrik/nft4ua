@@ -5,23 +5,27 @@ import * as Crypto from './crypto.js';
 import * as ethers from 'ethers';
 import ContractAbi from './abi.json';
 
-const Card = ({ id, path, name, contract }) => {
+const { parseEther } = ethers.utils;
+
+const Card = ({ id, path, name, contract, connectWallet }) => {
   const [tx, setTx] = useState(undefined);
   const [sold, setSold] = useState(undefined);
 
-  useEffect(() => {
-    async function init() {
-      if (contract) {
-        setSold(await contract.exists());
-      }
+  async function init() {
+    if (contract) {
+      setSold(await contract.exists(id));
     }
+  }
+
+  useEffect(() => {
     init();
   }, [contract]);
 
   const buy = async (id) => {
-    const tx = contract.mint(id);
+    const tx = await contract.mint(id, { value: parseEther('0.1') });
     setTx(tx);
-    tx.wait().then(() => {
+    tx.wait(6).then(async () => {
+      await init();
       setTx(undefined);
     });
   };
@@ -61,9 +65,15 @@ const Card = ({ id, path, name, contract }) => {
         }}
       >
         {name} <br />
-        {sold === undefined && <span>Loading..</span>}
+        {!contract && (
+          <button className="btn" onClick={connectWallet}>
+            Connect Wallet
+          </button>
+        )}
+        {contract && sold === undefined && <span>Loading..</span>}
         {sold === true && <span>Sold</span>}
         {sold === false && buyAction}
+        <br />
         {tx && <span>Pending tx: {tx.hash}</span>}
       </div>{' '}
     </div>
@@ -118,7 +128,13 @@ const Art = (props) => {
 
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-2 mx-auto">
         {Images.map(([path, name], index) => (
-          <Card id={index} path={path} name={name} contract={contract} />
+          <Card
+            id={index}
+            path={path}
+            name={name}
+            contract={contract}
+            connectWallet={connectWallet}
+          />
         ))}
       </div>
 
