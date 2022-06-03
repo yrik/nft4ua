@@ -58,6 +58,7 @@ contract NFT4Ukraine is ERC721, Ownable {
     function mint(uint256 id) public payable {
         require(saleOpen, "Sale is not open");
         require(msg.value >= price * amount, "Not enough ETH sent");
+        require(!_exists(id), "already minted");
         _counter += 1;
         _mint(msg.sender, id);
     }
