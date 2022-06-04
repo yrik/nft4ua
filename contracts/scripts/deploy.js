@@ -9,7 +9,7 @@ async function main() {
   const contract = await utils.deployContract('NFT4Ukraine');
   console.log('Deployed to:', contract.address);
 
-  await new Promise((resolve) => setTimeout(resolve, 30_000));
+  await new Promise((resolve) => setTimeout(resolve, 30000));
 
   await utils.verifyContract(contract.address);
   console.log('Contract verified');
